@@ -27,27 +27,14 @@ class Player
 end
 
 player_1 = Player.new('finn', 60)
-puts player_1.inspect
-puts player_1
 
-lucy = Player.new('lucy', 90)
-jase = Player.new('jase', 100)
-alex = Player.new('alex', 125)
-puts lucy
-puts jase
-puts alex
-
-alex.drain
-puts alex
-
-alex.boost
-puts alex
-
-puts player_1
-
-puts player_1.health
-
-alex.name = "alexander"
-puts alex
-
-puts alex.score
+number_rolled = rand(1..6)
+if number_rolled < 3
+    player_1.drain  
+    puts "(#{player_1.name}) got drained 😩"
+elsif number_rolled < 5
+    puts "(#{player_1.name}) got skipped"
+else
+    player_1.boost
+    puts "(#{player_1.name}) got boosted 💪"
+end
