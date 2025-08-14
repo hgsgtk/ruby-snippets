@@ -29,12 +29,20 @@ end
 player_1 = Player.new('finn', 60)
 
 number_rolled = rand(1..6)
-if number_rolled < 3
-    player_1.drain  
+case number_rolled
+when 1..2
+    player_1.drain
     puts "(#{player_1.name}) got drained 😩"
-elsif number_rolled < 5
+when 3..4
     puts "(#{player_1.name}) got skipped"
-else
+when 5..6
     player_1.boost
     puts "(#{player_1.name}) got boosted 💪"
 end
+
+number_rolled = rand(1..7)
+puts number_rolled == 7 ? "lucky" : "unlucky"
+unless number_rolled == 7
+  puts "You rolled a #{number_rolled}"
+end
+puts "Champ!" unless player_1.score <= 250
