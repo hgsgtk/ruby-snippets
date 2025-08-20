@@ -18,7 +18,7 @@ class Game
 
   def load_players(from_file)
     CSV.read(from_file).each do |row|
-      add_player(Player.new(row[0], row[1].to_i))
+      add_player(Player.from_csv(row))
     end
   end
 

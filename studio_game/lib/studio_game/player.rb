@@ -34,6 +34,10 @@ class Player
   def points
     @found_treasures.values.sum
   end
+
+  def self.from_csv(raw)
+    Player.new(raw[0], raw[1].to_i)
+  end
 end
 
 # Debug
