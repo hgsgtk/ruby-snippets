@@ -1,0 +1,5 @@
+require_relative "studio_game/game"
+require_relative "studio_game/player"
+require_relative "studio_game/treasure_trove"
+require_relative "studio_game/clumsy_player"
+require_relative "studio_game/berserk_player"

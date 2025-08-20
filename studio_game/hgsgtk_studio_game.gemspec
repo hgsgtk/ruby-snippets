@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = "hgsgtk_studio_game"
-  spec.version = "1.0.0"
+  spec.version = "1.0.1"
   spec.summary = "A game about players and treasures"
   spec.authors = ["Kazuki Higashiguchi"]
   spec.email = ["hgsgtk@gmail.com"]
