@@ -14,6 +14,19 @@ game.add_player(player_3)
 game.add_player(player_4)
 game.add_player(player_5)
 
-game.play(3)
+loop do
+  print "\nHow many game rounds? {'quit' to exit} "
+  answer = gets.chomp.downcase
+  case answer
+  when 'quit', 'exit'
+    game.print_stats
+    break
+  when /^\d+$/
+    rounds = answer.to_i
 
-game.print_stats
+    game.play(rounds)
+  else
+    puts "Please enter a valid number of rounds or 'quit' to exit"
+    next
+  end
+end
