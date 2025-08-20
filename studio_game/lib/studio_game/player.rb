@@ -36,10 +36,8 @@ class Player
   end
 
   def self.from_csv(raw)
-    Player.new(raw[0], Integer(raw[1]))
-  rescue ArgumentError
-    puts "Ignored invalid health: #{raw[1]}"
-    Player.new(raw[0])
+    health = Integer(raw[1]) rescue 50
+    Player.new(raw[0], health)
   end
 end
 

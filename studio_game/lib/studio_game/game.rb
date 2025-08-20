@@ -17,12 +17,14 @@ class Game
   end
 
   def load_players(from_file)
+    if not File.exist?(from_file)
+      puts "Whoops, #{from_file} doesn't exit!"
+      exit 1
+    end
+
     CSV.read(from_file).each do |row|
       add_player(Player.from_csv(row))
     end
-  rescue Errno::ENOENT
-    puts "Whoops, #{from_file} doesn't exit!"
-    exit 1
   end
 
   def play(rounds = 1)
