@@ -13,4 +13,8 @@ module TreasureTrove
   def self.random_treasure
     TREASURES.sample
   end
+
+  def self.treasure_items
+    TREASURES.map { |treasure| "A #{treasure.name} is worth #{treasure.points} points" }
+  end
 end

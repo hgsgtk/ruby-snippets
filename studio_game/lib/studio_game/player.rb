@@ -1,15 +1,15 @@
 # Player class represents a game player with name and health attributes
 class Player
   attr_accessor :name
-  attr_reader :health
+  attr_reader :health, :found_treasures
 
   def initialize(name, health = 100)
-      @name = name.capitalize
+      @name = name.split(" ").map { |word| word.capitalize }.join(" ")
       @health = health
       @found_treasures = Hash.new(0)
   end
 
-  def to_s = "I'm #{@name} with a health of #{@health} and a score of #{score}: #{@found_treasures}"
+  def to_s = "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}"
 
   def drain
       @health -= 10
@@ -20,7 +20,7 @@ class Player
   end
 
   def score
-    @health + @name.length
+    @health + points
   end
 
   def name=(new_name)
@@ -29,6 +29,10 @@ class Player
 
   def found_treasure(name, points)
     @found_treasures[name] += points
+  end
+
+  def points
+    @found_treasures.values.sum
   end
 end
 
