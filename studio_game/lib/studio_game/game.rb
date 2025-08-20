@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'csv'
 
 require_relative 'treasure_trove'
 
@@ -16,9 +17,8 @@ class Game
   end
 
   def load_players(from_file)
-    File.readlines(from_file, chomp: true).each do |line|
-      name, health = line.split(",")
-      add_player(Player.new(name, health.to_i))
+    CSV.read(from_file).each do |row|
+      add_player(Player.new(row[0], row[1].to_i))
     end
   end
 
