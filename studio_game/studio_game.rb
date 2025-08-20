@@ -12,4 +12,4 @@ game.add_player(player_2)
 game.add_player(player_3)
 game.add_player(player_4)
 
-game.play
+game.play(30)
