@@ -1,6 +1,6 @@
 Winner Takes All High Scores:
-Berserker........... 2380
-Scooby Doo.......... 2370
-Calvin.............. 2240
-Lucky Luke.......... 2080
-Klutz............... 1320
+Calvin..............  300
+Klutz...............  240
+Berserker...........  185
+Lucky Luke..........  170
+Scooby Doo..........   90

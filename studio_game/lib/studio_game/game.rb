@@ -2,9 +2,12 @@
 require 'csv'
 
 require_relative 'treasure_trove'
+require_relative 'auditable'
 
 # Game class manages players and gameplay for Studio Game
 class Game
+  include Auditable
+
   attr_reader :title, :players
 
   def initialize(title)
@@ -62,7 +65,9 @@ class Game
   end
 
   def roll_die
-    rand(1..6)
+    number = [1, 1, 2, 5, 6, 6].sample
+    audit(number)
+    number
   end
 
   def print_stats

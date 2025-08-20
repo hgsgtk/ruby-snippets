@@ -1,7 +1,11 @@
+require_relative 'playable'
+
 # Player class represents a game player with name and health attributes
 class Player
-  attr_accessor :name
-  attr_reader :health, :found_treasures
+  include Playable
+
+  attr_accessor :name, :health
+  attr_reader :found_treasures
 
   def initialize(name, health = 100)
       @name = name.split(" ").map { |word| word.capitalize }.join(" ")
@@ -10,14 +14,6 @@ class Player
   end
 
   def to_s = "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}"
-
-  def drain
-      @health -= 10
-  end
-
-  def boost
-    @health += 15
-  end
 
   def score
     @health + points
