@@ -6,8 +6,11 @@ puts "Let's start mastering Ruby blocks!"
   puts "#{iteration} chinup"
 end
 
-1.step(9, 2) do |count|
-  puts "#{count} situp"
-  puts "#{count} pushup"
-  puts "#{count} chinup"
+name = "Micheal"
+1.step(9, 2) do |count; name|
+  name = "John"
+  puts "#{name} #{count} situp"
+  puts "#{name} #{count} pushup"
+  puts "#{name} #{count} chinup"
 end
+puts name
