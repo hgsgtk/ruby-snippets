@@ -9,3 +9,9 @@ puts low_scores
 puts scores.any? { |score| score < 70 }
 
 puts scores.detect { |score| score < 70 }
+
+puts 'Selecting scores > 70:'
+puts scores.select! { |score| score > 70 }
+
+puts 'Rejecting even scores:'
+puts scores.reject! { |score| score.even? }
