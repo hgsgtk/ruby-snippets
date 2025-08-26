@@ -10,8 +10,14 @@ puts scores.any? { |score| score < 70 }
 
 puts scores.detect { |score| score < 70 }
 
-puts 'Selecting scores > 70:'
-puts scores.select! { |score| score > 70 }
+scores_doubled = scores.map { |score| score * 2 }
+puts scores_doubled
 
-puts 'Rejecting even scores:'
-puts scores.reject! { |score| score.even? }
+total_score = scores.reduce(0) { |sum, score| sum + score  }
+puts total_score
+
+puts scores.reduce(0, :+)
+
+evens, odds = scores.partition { |score| score.even? }
+p evens
+p odds
