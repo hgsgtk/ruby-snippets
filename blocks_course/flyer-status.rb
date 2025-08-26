@@ -54,3 +54,9 @@ puts total_miles
 
 total_kms = totals_in_km.reduce(0, :+)
 puts total_kms
+
+total_bronze_kms_flown = flyers.select { |flyer| flyer.status == :bronze }.reduce(0) { |sum, flyer| sum + flyer.miles_flown * 1.6 }
+puts total_bronze_kms_flown
+
+top_flyers = flyers.max_by { |f| f.miles_flown }
+puts top_flyers
