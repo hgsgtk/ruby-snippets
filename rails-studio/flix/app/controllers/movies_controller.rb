@@ -16,24 +16,20 @@ class MoviesController < ApplicationController
   def update
     @movie = Movie.find(params[:id])
 
-    # Approach 1: Whitelisted
-    # movie_data = params[:movie].permit(:title, :description, :released_on, :rating, :total_gross)
-
-    # Approach 2: Require
-    # movie_data = params.require(:movie).permit(:title, :description, :released_on, :rating, :total_gross)
-
-    # Approach 3: All allowed
-    # movie_data = params.require(:movie).permit!
-
-    @movie.update(movie_params)
-
-    redirect_to @movie
+    if @movie.update(movie_params)
+      redirect_to @movie
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def create
-    @movie = Movie.create(movie_params)
-
-    redirect_to @movie
+    @movie = Movie.new(movie_params)
+    if @movie.save
+      redirect_to @movie
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def new
