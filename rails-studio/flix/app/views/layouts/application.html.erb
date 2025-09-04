@@ -23,22 +23,12 @@
   </head>
 
   <body>
-    <header>
-      <%= image_tag("logo.png", alt: "Super-Heroic Flix") %>
-      <ul>
-        <li><%= link_to "Movies", movies_path %></li>
-      </ul>
-    </header>
+    <%= render "layouts/header" %>
 
     <div class="content">
       <%= yield %>
     </div>
 
-    <footer>
-      <p>
-        Copyright &copy; <% Time.now.year %>
-        <%= link_to "SRE East", "https://about.hgsgtk.me/" %>
-      </p>
-    </footer>
+    <%= render "layouts/footer" %>
   </body>
 </html>
