@@ -40,6 +40,14 @@ class MoviesController < ApplicationController
     @movie = Movie.new
   end
 
+  def destroy
+    id = params[:id]
+    @movie = Movie.find(id)
+    @movie.destroy
+
+    redirect_to movies_path, status: :see_other
+  end
+
   private
 
   def movie_params
