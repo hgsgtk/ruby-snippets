@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Flix" %></title>
+    <title><%= content_for(:title) || "Super-Heroic Flix" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -23,6 +23,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>Flix</h1>
+    </header>
+
+    <div class="content">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <p>
+        Copyright &copy; <% Time.now.year %>
+        <%= link_to "SRE East", "https://about.hgsgtk.me/" %>
+      </p>
+    </footer>
   </body>
 </html>
