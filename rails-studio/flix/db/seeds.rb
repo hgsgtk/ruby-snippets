@@ -207,7 +207,8 @@ User.create!([
     name: "Alice Johnson",
     email: "alice.johnson@example.com",
     username: "ALICE123",
-    password: "password123"
+    password: "password123",
+    admin: true
   },
   {
     name: "Bob Smith",
@@ -274,3 +275,45 @@ movies.each do |movie|
     }
   ])
 end
+
+# Create favorite associations
+# Alice Johnson favorites some popular movies
+Favorite.create!([
+  { user: users[0], movie: movies[0] }, # Avengers: Endgame
+  { user: users[0], movie: movies[2] }, # Black Panther
+  { user: users[0], movie: movies[3] }, # Avengers: Infinity War
+  { user: users[0], movie: movies[6] }, # Iron Man
+  { user: users[0], movie: movies[9] }, # Batman
+])
+
+# Bob Smith favorites some different movies
+Favorite.create!([
+  { user: users[1], movie: movies[1] }, # Captain Marvel
+  { user: users[1], movie: movies[6] }, # Iron Man
+  { user: users[1], movie: movies[8] }, # Spider-Man
+  { user: users[1], movie: movies[12] }, # Wonder Woman
+])
+
+# Carol Davis favorites some classic movies
+Favorite.create!([
+  { user: users[2], movie: movies[7] }, # Superman
+  { user: users[2], movie: movies[9] }, # Batman
+  { user: users[2], movie: movies[10] }, # Catwoman
+])
+
+# David Wilson favorites some action movies
+Favorite.create!([
+  { user: users[3], movie: movies[0] }, # Avengers: Endgame
+  { user: users[3], movie: movies[3] }, # Avengers: Infinity War
+  { user: users[3], movie: movies[6] }, # Iron Man
+  { user: users[3], movie: movies[8] }, # Spider-Man
+  { user: users[3], movie: movies[12] }, # Wonder Woman
+  { user: users[3], movie: movies[13] }, # The Incredible Hulk
+])
+
+# Eva Brown favorites some newer movies
+Favorite.create!([
+  { user: users[4], movie: movies[1] }, # Captain Marvel
+  { user: users[4], movie: movies[2] }, # Black Panther
+  { user: users[4], movie: movies[12] }, # Wonder Woman
+])
