@@ -200,3 +200,42 @@ Movie.create!([
     image_file_name: 'placeholder.png'
   }
 ])
+
+# Create reviews for all movies
+movies = Movie.all
+
+movies.each do |movie|
+  # Create 5 reviews for each movie with varied ratings and comments
+  Review.create!([
+    {
+      movie: movie,
+      name: "MovieFan123",
+      comment: "Absolutely incredible! This movie exceeded all my expectations. The storytelling was masterful and the character development was outstanding.",
+      stars: 5
+    },
+    {
+      movie: movie,
+      name: "CinemaCritic",
+      comment: "A solid film with great production values. While not perfect, it delivers an entertaining experience worth watching.",
+      stars: 4
+    },
+    {
+      movie: movie,
+      name: "AverageViewer",
+      comment: "Decent movie overall. Some parts were engaging while others felt a bit slow. Worth a watch if you're a fan of the genre.",
+      stars: 3
+    },
+    {
+      movie: movie,
+      name: "DisappointedFan",
+      comment: "Had high hopes for this one but it fell short. The plot felt rushed and some characters were underdeveloped.",
+      stars: 2
+    },
+    {
+      movie: movie,
+      name: "HarshReviewer",
+      comment: "Unfortunately this didn't work for me at all. Poor pacing, weak dialogue, and unconvincing performances throughout.",
+      stars: 1
+    }
+  ])
+end
