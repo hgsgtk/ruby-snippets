@@ -3,9 +3,6 @@
 <%= form_with(model: [@movie, @review]) do |f| %>
     <%= render "shared/errors", object: @review %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
     <div class="legend">Stars</div>
     <% Review::STARS.each do |star| %>
         <span class="star">
