@@ -1,9 +1,12 @@
 <header>
-    <%= image_tag("logo.png", alt: "Super-Heroic Flix") %>
-    <ul class="left">
-        <li><%= link_to "Movies", movies_path %></li>
-    </ul>
-    <ul class="right">
-        <li><%= link_to "Sign Up", signup_path %></li>
-    </ul>
+    <nav>
+        <%= image_tag("logo.png", alt: "Super-Heroic Flix") %>
+        <ul class="left">
+            <li><%= link_to "Movies", movies_path %></li>
+        </ul>
+        <ul class="right">
+            <li><%= link_to "Sign In", signin_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li>
+        </ul>
+    </nav>
 </header>
