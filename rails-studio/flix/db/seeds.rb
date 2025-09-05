@@ -239,3 +239,37 @@ movies.each do |movie|
     }
   ])
 end
+
+# Create users
+User.create!([
+  {
+    name: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    username: "ALICE123",
+    password: "password123"
+  },
+  {
+    name: "Bob Smith",
+    email: "bob.smith@example.com",
+    username: "BOBSMITH456",
+    password: "password123"
+  },
+  {
+    name: "Carol Davis",
+    email: "carol.davis@example.com",
+    username: "CAROL789",
+    password: "password123"
+  },
+  {
+    name: "David Wilson",
+    email: "david.wilson@example.com",
+    username: "DAVIDWILSON",
+    password: "password123"
+  },
+  {
+    name: "Eva Brown",
+    email: "eva.brown@example.com",
+    username: "EVABROWN2024",
+    password: "password123"
+  }
+])

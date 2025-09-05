@@ -5,8 +5,13 @@
             <li><%= link_to "Movies", movies_path %></li>
         </ul>
         <ul class="right">
-            <li><%= link_to "Sign In", signin_path %></li>
-            <li><%= link_to "Sign Up", signup_path %></li>
+            <% if current_user %>
+                <li><%= link_to current_user.name, current_user %></li>
+                <li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
+            <% else %>
+                <li><%= link_to "Sign In", signin_path %></li>
+                <li><%= link_to "Sign Up", signup_path %></li>
+            <% end %>
         </ul>
     </nav>
 </header>
