@@ -317,3 +317,118 @@ Favorite.create!([
   { user: users[4], movie: movies[2] }, # Black Panther
   { user: users[4], movie: movies[12] }, # Wonder Woman
 ])
+
+# Create genres
+Genre.create!([
+  { name: "Action" },
+  { name: "Adventure" },
+  { name: "Comedy" },
+  { name: "Drama" },
+  { name: "Horror" },
+  { name: "Romance" },
+  { name: "Sci-Fi" },
+  { name: "Thriller" },
+  { name: "Fantasy" },
+  { name: "Animation" }
+])
+
+# Create characterizations (movie-genre associations)
+movies = Movie.all
+genres = Genre.all
+
+# Avengers: Endgame - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[0], genre: genres[0] }, # Action
+  { movie: movies[0], genre: genres[1] }, # Adventure
+  { movie: movies[0], genre: genres[6] }  # Sci-Fi
+])
+
+# Captain Marvel - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[1], genre: genres[0] }, # Action
+  { movie: movies[1], genre: genres[1] }, # Adventure
+  { movie: movies[1], genre: genres[6] }  # Sci-Fi
+])
+
+# Black Panther - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[2], genre: genres[0] }, # Action
+  { movie: movies[2], genre: genres[1] }, # Adventure
+  { movie: movies[2], genre: genres[6] }  # Sci-Fi
+])
+
+# Avengers: Infinity War - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[3], genre: genres[0] }, # Action
+  { movie: movies[3], genre: genres[1] }, # Adventure
+  { movie: movies[3], genre: genres[6] }  # Sci-Fi
+])
+
+# Green Lantern - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[4], genre: genres[0] }, # Action
+  { movie: movies[4], genre: genres[1] }, # Adventure
+  { movie: movies[4], genre: genres[6] }  # Sci-Fi
+])
+
+# Fantastic Four - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[5], genre: genres[0] }, # Action
+  { movie: movies[5], genre: genres[1] }, # Adventure
+  { movie: movies[5], genre: genres[6] }  # Sci-Fi
+])
+
+# Iron Man - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[6], genre: genres[0] }, # Action
+  { movie: movies[6], genre: genres[1] }, # Adventure
+  { movie: movies[6], genre: genres[6] }  # Sci-Fi
+])
+
+# Superman - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[7], genre: genres[0] }, # Action
+  { movie: movies[7], genre: genres[1] }, # Adventure
+  { movie: movies[7], genre: genres[6] }  # Sci-Fi
+])
+
+# Spider-Man - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[8], genre: genres[0] }, # Action
+  { movie: movies[8], genre: genres[1] }, # Adventure
+  { movie: movies[8], genre: genres[6] }  # Sci-Fi
+])
+
+# Batman - Action, Adventure, Thriller
+Characterization.create!([
+  { movie: movies[9], genre: genres[0] }, # Action
+  { movie: movies[9], genre: genres[1] }, # Adventure
+  { movie: movies[9], genre: genres[7] }  # Thriller
+])
+
+# Catwoman - Action, Adventure, Thriller
+Characterization.create!([
+  { movie: movies[10], genre: genres[0] }, # Action
+  { movie: movies[10], genre: genres[1] }, # Adventure
+  { movie: movies[10], genre: genres[7] }  # Thriller
+])
+
+# Wonder Woman - Action, Adventure, Fantasy
+Characterization.create!([
+  { movie: movies[11], genre: genres[0] }, # Action
+  { movie: movies[11], genre: genres[1] }, # Adventure
+  { movie: movies[11], genre: genres[8] }  # Fantasy
+])
+
+# The Incredible Hulk - Action, Adventure, Sci-Fi
+Characterization.create!([
+  { movie: movies[12], genre: genres[0] }, # Action
+  { movie: movies[12], genre: genres[1] }, # Adventure
+  { movie: movies[12], genre: genres[6] }  # Sci-Fi
+])
+
+# The Exit 8 - Horror, Thriller
+Characterization.create!([
+  { movie: movies[13], genre: genres[4] }, # Horror
+  { movie: movies[13], genre: genres[7] }  # Thriller
+])
