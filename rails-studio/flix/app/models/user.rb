@@ -14,6 +14,9 @@ class User < ApplicationRecord
     uniqueness: { case_sensitive: false },
     format: { with: /\A[A-Z0-9]+\z/i }
 
+  scope :by_name, -> { order(name: :asc) }
+  scope :not_admins, -> { by_name.where(admin: false) }
+
   def gravatar_id
     Digest::MD5.hexdigest(email.downcase)
   end
