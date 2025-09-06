@@ -1,6 +1,8 @@
 class Movie < ApplicationRecord
   before_save :set_slug
 
+  has_one_attached :main_image
+
   has_many :reviews, dependent: :destroy
   has_many :critics, through: :reviews, source: :user
   has_many :favorites, dependent: :destroy
@@ -14,10 +16,6 @@ class Movie < ApplicationRecord
   validates :released_on, :duration, presence: true
   validates :description, length: { minimum: 25 }
   validates :total_gross, numericality: { greater_than_or_eaual_to: 0 }
-  validates :image_file_name, format: {
-    with: /\w+\.(jpg|png)\z/i,
-    message: "must be a JPG or PNG image"
-  }
   validates :rating, inclusion: { in: RATINGS }
 
   scope :released, -> { where("released_on < ?", Time.now).order(released_on: :desc) }
