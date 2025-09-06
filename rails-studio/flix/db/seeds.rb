@@ -187,6 +187,38 @@ Movie.create!([
   }
 ])
 
+# Attach movie images
+[
+  ["Avengers: Endgame", "avengers-end-game.png"],
+  ["Captain Marvel", "captain-marvel.png"],
+  ["Black Panther", "black-panther.png"],
+  ["Avengers: Infinity War", "avengers-infinity-war.png"],
+  ["Green Lantern", "green-lantern.png"],
+  ["Fantastic Four", "fantastic-four.png"],
+  ["Iron Man", "ironman.png"],
+  ["Superman", "superman.png"],
+  ["Spider-Man", "spiderman.png"],
+  ["Batman", "batman.png"],
+  ["Catwoman", "catwoman.png"],
+  ["Wonder Woman", "wonder-woman.png"],
+  ["The Incredible Hulk", "hulk.png"]
+].each do |movie_title, file_name|
+  movie = Movie.find_by!(title: movie_title)
+  file_path = Rails.root.join("app/assets/images/#{file_name}")
+
+  if File.exist?(file_path)
+    file = File.open(file_path)
+    movie.main_image.attach(io: file, filename: file_name)
+    file.close
+
+    # If running the seeds gives you a SQLite3::BusyException
+    # exception, then add a very short sleep like this:
+    sleep 0.1
+  else
+    puts "Warning: Image file #{file_name} not found for movie #{movie_title}"
+  end
+end
+
 # Create users first
 User.create!([
   {
