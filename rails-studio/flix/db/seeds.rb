@@ -206,32 +206,32 @@ User.create!([
   {
     name: "Alice Johnson",
     email: "alice.johnson@example.com",
-    username: "ALICE123",
+    username: "alice123",
     password: "password123",
     admin: true
   },
   {
     name: "Bob Smith",
     email: "bob.smith@example.com",
-    username: "BOBSMITH456",
+    username: "bobsmith456",
     password: "password123"
   },
   {
     name: "Carol Davis",
     email: "carol.davis@example.com",
-    username: "CAROL789",
+    username: "carol789",
     password: "password123"
   },
   {
     name: "David Wilson",
     email: "david.wilson@example.com",
-    username: "DAVIDWILSON",
+    username: "davidwilson",
     password: "password123"
   },
   {
     name: "Eva Brown",
     email: "eva.brown@example.com",
-    username: "EVABROWN2024",
+    username: "evabrown2024",
     password: "password123"
   }
 ])

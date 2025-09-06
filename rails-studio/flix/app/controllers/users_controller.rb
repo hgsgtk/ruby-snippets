@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by!(username: params[:id])
     @reviews = @user.reviews
     @favorite_movies = @user.favorite_movies
   end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by!(username: params[:id])
     @user.destroy
     session[:user_id] = nil
     redirect_to movies_url, status: :see_other, alert: "Account successfully deleted!"

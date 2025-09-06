@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_movies, through: :favorites, source: :movie
 
+  before_save :format_username, :format_email
+
   has_secure_password
 
   validates :name, presence: true
@@ -19,5 +21,19 @@ class User < ApplicationRecord
 
   def gravatar_id
     Digest::MD5.hexdigest(email.downcase)
+  end
+
+  def to_param
+    username
+  end
+
+  private
+
+  def format_username
+    self.username = username.downcase
+  end
+
+  def format_email
+    self.email = email.downcase
   end
 end
