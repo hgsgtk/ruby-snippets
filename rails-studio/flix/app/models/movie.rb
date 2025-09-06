@@ -17,6 +17,12 @@ class Movie < ApplicationRecord
   }
   validates :rating, inclusion: { in: RATINGS }
 
+  scope :released, -> { where("released_on < ?", Time.now).order(released_on: :desc) }
+  scope :upcoming, -> { where("released_on >= ?", Time.now).order(released_on: :asc) }
+  scope :recent, ->(max = 5) { released.limit(max) }
+  scope :hits, -> {  released.where("total_gross >= ?", 300_000_000).order(total_gross: :desc) }
+  scope :flops, -> { released.where("total_gross < ?", 225_000_000).order(total_gross: :asc) }
+
   def flop?
     unless reviews.count > 50 && average_stars >= 4
       total_gross.blank? || total_gross < 225_000_000
@@ -29,18 +35,6 @@ class Movie < ApplicationRecord
 
   def average_stars_as_percent
     (self.average_stars / 5.0) * 100
-  end
-
-  def self.released
-    where("released_on < ?", Time.now).order(released_on: :desc)
-  end
-
-  def self.hits
-    where("total_gross >= ?", 300_000_000).order(total_gross: :desc)
-  end
-
-  def self.flops
-    where("total_gross < ?", 225_000_000).order(total_gross: :asc)
   end
 
   def self.recently_added
