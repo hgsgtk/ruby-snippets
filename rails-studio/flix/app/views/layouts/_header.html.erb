@@ -2,7 +2,11 @@
     <nav>
         <%= image_tag("logo.png", alt: "Super-Heroic Flix") %>
         <ul class="left">
-            <li><%= link_to "Movies", movies_path %></li>
+            <li><%= nav_link_to "Released", movies_path %></li>
+            <li><%= nav_link_to "Upcoming", filtered_movies_path(filter: "upcoming") %></li>
+            <li><%= nav_link_to "Recent", filtered_movies_path(filter: "recent") %></li>
+            <li><%= nav_link_to "Hits", filtered_movies_path(filter: "hits") %></li>
+            <li><%= nav_link_to "Flops", filtered_movies_path(filter: "flops") %></li>
         </ul>
         <ul class="right">
             <% if current_user %>
